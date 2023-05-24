@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Product List</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<style>
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin: 20px 0;
+        border: 1px solid #ccc;
+        padding: 20px;
+    }
+
+    h2 {
+        margin: 0;
+    }
+
+    p {
+        margin: 10px 0;
+    }
+
+    span {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <h2>Random Number:<span id="random-number"></span></h2>
+    <script>
+
+        function getRandomNumber() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const randomNumber = Math.floor(Math.random() * 100);
+                    resolve(randomNumber);
+                }, 2500);
+            });
+        }
+
+        async function displayRandomNumber() {
+            const randomNumber = await getRandomNumber();
+            document.getElementById("random-number").innerHTML =
+                randomNumber;
+        }
+        displayRandomNumber();
+
+    </script>
+</body>
+
+</html>
